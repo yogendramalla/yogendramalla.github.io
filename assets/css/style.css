@@ -388,7 +388,7 @@ p #own-self{
                     position: relative;
   }
  
-  100%
+  50%
   {
                     background:linear-gradient(rgba(0, 0, 0, 0.7),
                     rgba(0, 0, 0, 0.7)), url(../img/space.jpeg) top center;

@@ -1,6 +1,6 @@
 (function first() {
-  // https://dashboard.emailjs.com/admin/account
-  // emailjs.init('U7IEJsYG7n6kp4mwm');
+  //dashboard.emailjs.com/admin/account
+  https: emailjs.init("TjkcnICLcqPEcCy8A");
 })();
 
 (function () {
@@ -299,33 +299,34 @@ function readMoreFun() {
 
 readMoreFun();
 
-//   function sendMail(){
+function sendMail() {
+  var showMessage = document.getElementById("showMessage");
 
-//       var showMessage = document.getElementById('showMessage');
+  showMessage.innerHTML = "Sending your queries to yogendra...";
 
-//       showMessage.innerHTML= "Sending your queries to the team..."
+  var params = {
+    form_firstname: document.getElementById("firstName").value,
+    form_lastname: document.getElementById("lastName").value,
+    email_id: document.getElementById("email").value,
+    phone: document.getElementById("phone").value,
+    message: document.getElementById("yourMessage").value,
+  };
 
-//       var params = {
-//           form_firstname: document.getElementById('firstName').value,
-//           form_lastname: document.getElementById('lastName').value,
-//           email_id: document.getElementById('email').value,
-//           phone: document.getElementById('phone').value,
-//           message: document.getElementById('yourMessage').value
-//       }
+  emailjs.send("service_c76vjgl", "template_7ucqm3h", params).then(
+    function (res) {
+      showMessage.innerHTML =
+        "Thank you for connecting with me. I will reply you ASAP!!";
+      // alert("Your Queries are successfully submitted ! Thank you");
+      // window.location.reload()
+      // document.getElementById("formAll").reset();
+      console.log(params);
+    },
+    function (error) {
+      showMessage.innerHTML = "Your Queries are not submitted !! Issue arised";
+      // document.getElementById("formAll").reset();
+      console.log(error);
+    }
+  );
+}
 
-//       emailjs.send("service_7pbl3b2","template_7fny4c7",params).then(function(res){
-//         showMessage.innerHTML = "Thank you for connecting with us. We will reply you ASAP!!"
-//           // alert("Your Queries are successfully submitted ! Thank you");
-//           // window.location.reload()
-//           // document.getElementById("formAll").reset();
-//           console.log(params);
-
-//       },function(error){
-//         showMessage.innerHTML = "Your Queries are not submitted !! Issue arised";
-//         // document.getElementById("formAll").reset();
-//         console.log(error);
-
-//       })
-//   }
-
-// sendMail();
+sendMail();
