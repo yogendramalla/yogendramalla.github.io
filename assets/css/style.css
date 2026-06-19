@@ -1506,7 +1506,7 @@ footer .social_icons li a
 }
 
 footer .social_icons li a:hover{
-  transform: translateY(-10px);
+  pointer-events: none;
 }
 
 footer .menu li a
